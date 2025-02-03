@@ -1,11 +1,13 @@
-import React from 'react'
+import Counter from "./components/Counter";
+import UserForm from "./components/UserForm";
 
 const App = () => {
   return (
     <div>
-      App
+      <Counter />
+      <UserForm/>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
