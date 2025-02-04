@@ -1,12 +1,38 @@
-import { useNavigate } from "react-router"
-const Header = () => {
-  const navigate = useNavigate()
-  return (
-    <header className="bg-red-400 h-14 flex justify-center py-4 gap-5 text-2xl">
-      <p className="cursor-pointer hover:scale-105" onClick={() => navigate("/")}>Home</p>
-      <p className="cursor-pointer hover:scale-105" onClick={() => navigate("/dashboard")}>Dashboard</p>
-    </header>
-  )
-}
+import { useNavigate } from "react-router";
+import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 
-export default Header
+const Header = () => {
+  const navigate = useNavigate();
+
+  return (
+    <AppBar 
+      position="static" 
+      sx={{ backgroundColor: "#4a6fa5", paddingY: 1 }}
+    >
+      <Toolbar sx={{ display: "flex", justifyContent: "center", gap: 4 }}>
+        <Typography
+          variant="h6"
+          sx={{ 
+            cursor: "pointer", 
+            "&:hover": { transform: "scale(1.05)", transition: "0.2s ease-in-out" } 
+          }}
+          onClick={() => navigate("/")}
+        >
+          Home
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{ 
+            cursor: "pointer", 
+            "&:hover": { transform: "scale(1.05)", transition: "0.2s ease-in-out" } 
+          }}
+          onClick={() => navigate("/dashboard")}
+        >
+          Dashboard
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default Header;

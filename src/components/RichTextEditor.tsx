@@ -19,16 +19,40 @@ const RichTextEditor: React.FC = () => {
   };
 
   return (
-    <Paper elevation={3} sx={{ padding: 3, maxWidth: 1200, margin: "auto", borderRadius: 2 }}>
+    <Paper
+      elevation={3}
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        padding: 4,
+        borderRadius: 3,
+        backgroundColor: "background.paper",
+      }}
+    >
       <Typography variant="h5" align="center" gutterBottom>
         Rich Text Editor
       </Typography>
       <Box sx={{ display: "flex", justifyContent: "center", gap: 1, marginBottom: 2 }}>
-        <Button variant="contained" onClick={() => applyStyle("BOLD")}>Bold</Button>
-        <Button variant="contained" onClick={() => applyStyle("ITALIC")}>Italic</Button>
-        <Button variant="contained" onClick={() => applyStyle("UNDERLINE")}>Underline</Button>
+        <Button variant="contained" onClick={() => applyStyle("BOLD")}>
+          Bold
+        </Button>
+        <Button variant="contained" onClick={() => applyStyle("ITALIC")}>
+          Italic
+        </Button>
+        <Button variant="contained" onClick={() => applyStyle("UNDERLINE")}>
+          Underline
+        </Button>
       </Box>
-      <Paper elevation={1} sx={{ padding: 2, minHeight: 200, cursor: "text" }}>
+      <Paper
+        elevation={1}
+        sx={{
+          flex: 1,
+          padding: 2,
+          minHeight: 200,
+          cursor: "text",
+        }}
+      >
         <Editor editorState={editorState} onChange={handleEditorChange} />
       </Paper>
     </Paper>

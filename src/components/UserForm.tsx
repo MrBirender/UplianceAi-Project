@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../features/userSlice";
 import { setUserContent } from "../features/textEditorSlice";
-import { TextField, Button, Box, Typography, Grid, Paper } from "@mui/material";
+import { TextField, Button, Paper, Typography, Stack } from "@mui/material";
 
 const UserForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,30 +19,31 @@ const UserForm: React.FC = () => {
   };
 
   return (
-    <Paper elevation={2} sx={{ padding: 3, maxWidth: 600, margin: "auto", borderRadius: 2 }}>
-      <Typography variant="h5" align="center" gutterBottom>
+    <Paper
+      elevation={3}
+      sx={{
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: 4,
+        borderRadius: 3,
+        backgroundColor: "background.paper",
+      }}
+    >
+      <Typography color="primary"  variant="h4" align="center" gutterBottom>
         User Information
       </Typography>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField fullWidth label="Name" name="name" onChange={handleChange} required />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField fullWidth label="Email" name="email" type="email" onChange={handleChange} required />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField fullWidth label="Phone" name="phone" type="tel" onChange={handleChange} required />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField fullWidth label="Address" name="address" onChange={handleChange} required />
-          </Grid>
-          <Grid item xs={12} sx={{ textAlign: "center" }}>
-            <Button variant="contained" color="primary" type="submit">
-              Save & Display in Editor
-            </Button>
-          </Grid>
-        </Grid>
+        <Stack spacing={2} alignItems="center">
+          <TextField label="Name" name="name" onChange={handleChange} required sx={{ width: "80%" }} />
+          <TextField label="Email" name="email" type="email" onChange={handleChange} required sx={{ width: "80%" }} />
+          <TextField label="Phone" name="phone" type="tel" onChange={handleChange} required sx={{ width: "80%" }} />
+          <TextField label="Address" name="address" onChange={handleChange} required sx={{ width: "80%" }} />
+          <Button variant="contained" color="primary" type="submit" sx={{ width: "60%", fontWeight: "medium" }}>
+            Save & Display in Editor
+          </Button>
+        </Stack>
       </form>
     </Paper>
   );

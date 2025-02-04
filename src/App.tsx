@@ -18,7 +18,7 @@ const App = () => {
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="login" element={<Login/>}/>
       </Routes>
-      <footer>footer</footer>
+    
     </main>
   );
 };

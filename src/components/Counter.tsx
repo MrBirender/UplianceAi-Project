@@ -9,7 +9,8 @@ const Counter: React.FC = () => {
   const count = useSelector((state: RootState) => state.counter.count);
 
   // Dynamically adjust background opacity based on count
-  const backgroundColor = `rgba(0, 150, 136, ${Math.min(0.1 + count * 0.05, 1)})`;
+  const backgroundColor = `rgba(74, 111, 165, ${Math.min(0.1 + count * 0.05, 1)})`;
+
 
   return (
     <Box
@@ -21,7 +22,7 @@ const Counter: React.FC = () => {
         boxShadow: 3,
       }}
     >
-      <Typography variant="h4">Counter</Typography>
+      <Typography  color="primary"  variant="h4">Counter</Typography>
       <Typography sx={{ mt:5, mb:-5, font: "bold" }} variant="h1">{count}</Typography>
       <Box mt={10}>
         <Button variant="contained" color="primary" onClick={() => dispatch(increment())} sx={{ mx: 1 }}>
