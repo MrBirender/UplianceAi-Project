@@ -21,8 +21,9 @@ const Counter: React.FC = () => {
         boxShadow: 3,
       }}
     >
-      <Typography variant="h4">Counter: {count}</Typography>
-      <Box mt={2}>
+      <Typography variant="h4">Counter</Typography>
+      <Typography sx={{ mt:5, mb:-5, font: "bold" }} variant="h1">{count}</Typography>
+      <Box mt={10}>
         <Button variant="contained" color="primary" onClick={() => dispatch(increment())} sx={{ mx: 1 }}>
           Increment
         </Button>

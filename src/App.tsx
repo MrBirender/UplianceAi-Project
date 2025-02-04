@@ -4,6 +4,11 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 
+// Polyfill for global in the browser
+if (typeof global === "undefined") {
+  (window as any).global = window;
+}
+
 const App = () => {
   return (
     <main>
