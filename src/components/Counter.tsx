@@ -1,52 +1,39 @@
-import { useEffect } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, reset } from '../features/counter/counterSlice';
-import { RootState } from '../app/store' // Import RootState type
+import { increment, decrement, reset } from "../features/counterSlice";
+import { RootState } from "../app/store";
+import { Button, Box, Typography } from "@mui/material";
 
-const Counter = () => {
-  const count = useSelector((state: RootState) => state.counter.count);
+const Counter: React.FC = () => {
   const dispatch = useDispatch();
+  const count = useSelector((state: RootState) => state.counter.count);
 
-  useEffect(() => {
-    localStorage.setItem("counter", count.toString());
-  }, [count]);
-
-  // Define color transitions
-  const { backgroundColor } = useSpring({
-    backgroundColor: `rgba(0, 150, 255, ${Math.min(count / 20, 1)})`, // Smooth opacity change
-    config: { tension: 100, friction: 20 },
-  });
+  // Dynamically adjust background opacity based on count
+  const backgroundColor = `rgba(0, 150, 136, ${Math.min(0.1 + count * 0.05, 1)})`;
 
   return (
-    <animated.div
-      className="flex flex-col items-center justify-center min-h-screen p-4"
-      style={{ backgroundColor }} // Animated background color
+    <Box
+      sx={{
+        backgroundColor,
+        padding: 4,
+        textAlign: "center",
+        borderRadius: "8px",
+        boxShadow: 3,
+      }}
     >
-      <div className="p-6 bg-white rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold mb-4">Counter: {count}</h1>
-        <div className="flex gap-4">
-          <button
-            onClick={() => dispatch(increment())}
-            className="px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            Increment
-          </button>
-          <button
-            onClick={() => dispatch(decrement())}
-            className="px-4 py-2 bg-red-500 text-white rounded"
-          >
-            Decrement
-          </button>
-          <button
-            onClick={() => dispatch(reset())}
-            className="px-4 py-2 bg-gray-500 text-white rounded"
-          >
-            Reset
-          </button>
-        </div>
-      </div>
-    </animated.div>
+      <Typography variant="h4">Counter: {count}</Typography>
+      <Box mt={2}>
+        <Button variant="contained" color="primary" onClick={() => dispatch(increment())} sx={{ mx: 1 }}>
+          Increment
+        </Button>
+        <Button variant="contained" color="secondary" onClick={() => dispatch(decrement())} sx={{ mx: 1 }}>
+          Decrement
+        </Button>
+        <Button variant="contained" color="error" onClick={() => dispatch(reset())} sx={{ mx: 1 }}>
+          Reset
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
