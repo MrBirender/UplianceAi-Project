@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
           </Card>
         </Box>
 
-        {/* Right Section: Bar & Pie Charts (Full Width) */}
+        {/* Right Section: Bar & Pie Charts */}
         <Box sx={{ flex: "1", display: "flex", flexDirection: "column", gap: "20px" }}>
           <Card sx={{ padding: 2, backgroundColor: "#f5f8fd", boxShadow: 2 }}>
             <CardContent>

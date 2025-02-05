@@ -6,7 +6,7 @@ import { TextField, Button, Paper, Typography, Stack } from "@mui/material";
 
 const UserForm: React.FC = () => {
   const dispatch = useDispatch();
-  const [inputs, setInputs] = useState({ name: "", email: "", phone: "", address: "" });
+  const [inputs, setInputs] = useState({id: "",  name: "", email: "", phone: "", address: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
