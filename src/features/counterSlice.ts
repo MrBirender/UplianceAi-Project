@@ -28,6 +28,7 @@ const counterSlice = createSlice({
     reset: (state) => {
       state.count = 0;
       localStorage.setItem("counter", JSON.stringify(state.count));
+      
     },
   },
 });

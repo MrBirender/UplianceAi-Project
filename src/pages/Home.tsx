@@ -12,7 +12,7 @@ const Home: React.FC = () => {
     <animated.div style={fadeIn}>
       <Box
         sx={{
-          display: "grid",
+          display:  "grid",
           gridTemplateColumns: "1fr 2fr",
           gap: 2,
           height: "calc(100vh - 64px)", // This will ensure space is available for padding

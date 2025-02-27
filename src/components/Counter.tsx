@@ -5,7 +5,7 @@ import { RootState } from "../app/store";
 import { Button, Box, Typography } from "@mui/material";
 
 const Counter: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch =  useDispatch();
   const count = useSelector((state: RootState) => state.counter.count);
 
   // Dynamically adjust background opacity based on count

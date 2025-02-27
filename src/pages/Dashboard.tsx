@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
   const fadeIn = useSpring({ opacity: 1, from: { opacity: 0 }, config: { duration: 500 } });
 
   // Redux Counter
-  const counter = useSelector((state: RootState) => state.counter.count);
+  const counter =  useSelector((state: RootState) => state.counter.count);
 
   // Mock User Data
   const user = JSON.parse(localStorage.getItem("user") || "{}") || {
